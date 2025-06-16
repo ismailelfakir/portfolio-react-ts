@@ -18,7 +18,7 @@
       "github": "https://github.com/ismailelfakir",
       "linkedin": "https://linkedin.com/in/ismailelfakir",
       "email": "mailto:ielfakir49@gmail.com",
-      "twitter": "https://twitter.com/ismailelfakir"
+      "twitter": "https://twitter.com/ismailelfaker"
     }
   },
   "skills": {
@@ -61,143 +61,95 @@
   "projects": [
     {
       "id": "1",
-      "title": "E-Commerce Dashboard",
-      "description": "A responsive admin dashboard for managing e-commerce operations with real-time analytics and inventory management.",
-      "longDescription": "A comprehensive e-commerce dashboard built with React and TypeScript, featuring real-time analytics, inventory management, order processing, and customer management. The dashboard includes interactive charts, data visualization, and a responsive design that works seamlessly across all devices.",
+      "title": "Web Dev Tests QCM",
+      "description": "An interactive web application for testing knowledge in various web development domains through multiple-choice quizzes.",
+      "longDescription": "A dynamic web application designed to help users practice and improve their web development skills through interactive multiple-choice quizzes. It covers topics such as HTML, CSS, JavaScript, PHP, Apache, DNS, and Bootstrap, with real-time progress tracking, instant feedback, and detailed result summaries. Built with React 18, Vite, and Tailwind CSS, and deployed on Vercel for seamless access. The application supports French and offers an intuitive interface for an engaging learning experience.",
       "category": "web",
-      "image": "https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "tags": ["React", "TypeScript", "Tailwind CSS", "Chart.js"],
+      "image": "https://res.cloudinary.com/dna1kkyex/image/upload/v1750085728/qcm-img_evg1ro.png",
+      "tags": ["React", "Vite", "Tailwind CSS", "JavaScript"],
       "links": {
-        "demo": "https://example.com/demo",
-        "github": "https://github.com/ismailelfakir/ecommerce-dashboard"
+        "demo": "https://web-dev-tests-qcm.vercel.app",
+        "github": "https://github.com/ismailelfakir/web-dev-tests-qcm"
       },
       "features": [
-        "Real-time sales analytics",
-        "Inventory management system",
-        "Order processing workflow",
-        "Customer management",
-        "Responsive design",
-        "Dark/light mode support"
+        "Multiple-choice quizzes across web development topics",
+        "Real-time progress tracking",
+        "Instant visual feedback",
+        "Detailed result summaries with answer reviews",
+        "Responsive and modern interface",
+        "French language support"
       ]
     },
     {
       "id": "2",
-      "title": "Health & Fitness App",
-      "description": "A mobile application for tracking workouts, nutrition, and health metrics with personalized recommendations.",
-      "longDescription": "A comprehensive health and fitness mobile application that helps users track their workouts, monitor nutrition intake, and analyze health metrics. The app features personalized workout recommendations, meal planning, progress tracking, and social features to connect with other fitness enthusiasts.",
-      "category": "mobile",
-      "image": "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "tags": ["React Native", "Node.js", "MongoDB", "Express"],
+      "title": "Quality Evaluation System",
+      "description": "A web application for evaluating quality in higher education, enabling students, teachers, and staff to assess institutional aspects based on standardized criteria.",
+      "longDescription": "A sophisticated web application designed for quality evaluation in higher education institutions. It allows students, teachers, and administrative staff to assess various institutional aspects through a hierarchical structure of fields, references, criteria, and questions. The system features role-based question filtering, interactive dashboards with graphical visualizations, automated score calculations, and data export options in Markdown, Excel, and PDF formats. Built with React 18, TypeScript, and Tailwind CSS, it ensures a responsive, secure, and user-friendly experience, deployed on Vercel.",
+      "category": "web",
+      "image": "https://res.cloudinary.com/dna1kkyex/image/upload/v1750084524/mq-img_gxxgo0.png",
+      "tags": ["React", "TypeScript", "Tailwind CSS", "Lucide React", "XLSX", "jsPDF"],
       "links": {
-        "demo": "https://example.com/fitness-app",
-        "github": "https://github.com/ismailelfakir/fitness-app"
+        "demo": "https://qual-eval.vercel.app",
+        "github": "https://github.com/ismailelfakir/qual-eval"
       },
       "features": [
-        "Workout tracking and planning",
-        "Nutrition monitoring",
-        "Progress analytics",
-        "Social features",
-        "Personalized recommendations",
-        "Offline mode support"
+        "Role-based evaluation for students, teachers, and staff",
+        "Hierarchical assessment structure (fields, references, criteria, questions)",
+        "Choice and scale question types with automated scoring",
+        "Interactive dashboards with progress charts",
+        "Data export in Markdown, Excel, and PDF",
+        "Responsive design for desktop, tablet, and mobile"
       ]
     },
     {
       "id": "3",
-      "title": "Financial Portfolio Tracker",
-      "description": "A web application for tracking investment portfolios with real-time market data and performance analytics.",
-      "longDescription": "A sophisticated financial portfolio tracking application that provides real-time market data, performance analytics, and investment insights. Users can track multiple portfolios, analyze asset allocation, monitor market trends, and receive personalized investment recommendations based on their risk profile.",
+      "title": "LifeInsights Blog",
+      "description": "A modern, SEO-optimized blog platform offering practical insights on health, education, lifestyle, technology, insurance, and travel, designed for a general audience.",
+      "longDescription": "LifeInsights Blog is a professional, accessible, and performance-optimized web platform delivering high-quality content on health, education, lifestyle, technology, insurance, and travel. Built with React 18, TypeScript, and Tailwind CSS, it features over 25 comprehensive articles, organized into six categories, with SEO-friendly URLs, structured data, and Open Graph tags for enhanced discoverability. The mobile-first, WCAG-compliant design includes dark/light mode, intuitive navigation with dropdown menus, search functionality, and a newsletter signup. Deployed on Vercel, it ensures fast loading and a seamless user experience across devices.",
       "category": "web",
-      "image": "https://images.pexels.com/photos/187041/pexels-photo-187041.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "tags": ["Next.js", "Python", "PostgreSQL", "D3.js"],
+      "image": "https://res.cloudinary.com/dna1kkyex/image/upload/v1750086636/blogs-img_x3mabn.png",
+      "tags": ["React", "TypeScript", "Tailwind CSS", "Vite", "React Helmet", "Lucide React"],
       "links": {
-        "demo": "https://example.com/portfolio-tracker",
-        "github": "https://github.com/ismailelfakir/portfolio-tracker"
+        "demo": "https://life-insights-blog.vercel.app",
+        "github": "https://github.com/ismailelfakir/life-insights-blog"
       },
       "features": [
-        "Real-time market data",
-        "Portfolio performance analytics",
-        "Asset allocation visualization",
-        "Risk assessment tools",
-        "Investment recommendations",
-        "Multi-currency support"
-      ]
-    },
-    {
-      "id": "4",
-      "title": "Travel Photography Site",
-      "description": "A stunning portfolio website showcasing travel photography with an immersive gallery experience.",
-      "longDescription": "An elegant travel photography portfolio website featuring an immersive gallery experience, interactive maps showing photo locations, and a blog section for travel stories. The site includes advanced image optimization, lazy loading, and a responsive design that showcases photography in the best possible light.",
-      "category": "design",
-      "image": "https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "tags": ["Vue.js", "Nuxt.js", "SCSS", "Strapi"],
-      "links": {
-        "demo": "https://example.com/travel-photography",
-        "github": "https://github.com/ismailelfakir/travel-photography"
-      },
-      "features": [
-        "Immersive photo gallery",
-        "Interactive location maps",
-        "Travel blog integration",
-        "Image optimization",
-        "Responsive design",
-        "SEO optimization"
+        "Over 25 SEO-optimized articles across six categories",
+        "Mobile-first, WCAG-compliant responsive design",
+        "Dark/light mode with user preference storage",
+        "Professional navigation with dropdown menus and search",
+        "React Helmet for dynamic meta tags and structured data",
+        "Fast loading with lazy-loaded images and code splitting"
       ]
     }
   ],
   "testimonials": [
     {
       "id": "1",
-      "name": "Sarah Johnson",
-      "role": "Product Manager",
-      "company": "TechCorp Inc.",
-      "content": "Ismail delivered exceptional work on our e-commerce platform. His attention to detail and technical expertise made the project a huge success. The dashboard he built has significantly improved our operational efficiency.",
+      "name": "Fatima El Amrani",
+      "role": "Project Manager",
+      "company": "Tech-Solutions Maroc",
+      "content": "Ismail's work on our educational platform was outstanding. His expertise in React and TypeScript ensured a seamless and interactive user experience, greatly enhancing our digital learning environment.",
       "rating": 5,
-      "createdAt": "2024-01-15"
+      "createdAt": "2024-06-10"
     },
     {
       "id": "2",
-      "name": "Michael Chen",
-      "role": "CTO",
-      "company": "StartupXYZ",
-      "content": "Working with Ismail was a game-changer for our startup. He transformed our ideas into a beautiful, functional web application that exceeded our expectations. His communication throughout the project was outstanding.",
+      "name": "Mohammed Bensaid",
+      "role": "Software Engineer",
+      "company": "InnovateTech Casablanca",
+      "content": "Collaborating with Ismail was a pleasure. He developed a robust web application for our startup, showcasing exceptional skills in full-stack development and delivering on time with high quality.",
       "rating": 5,
-      "createdAt": "2024-02-08"
+      "createdAt": "2024-07-15"
     },
     {
       "id": "3",
-      "name": "Emily Rodriguez",
-      "role": "Design Lead",
-      "company": "Creative Agency",
-      "content": "Ismail's ability to translate design concepts into pixel-perfect code is remarkable. He collaborated seamlessly with our design team and delivered a responsive website that looks amazing on all devices.",
+      "name": "Aicha Laaroussi",
+      "role": "UX Designer",
+      "company": "CreativeMind Rabat",
+      "content": "Ismail's ability to bring our designs to life was impressive. His attention to detail and commitment to accessibility made our website visually stunning and user-friendly across all devices.",
       "rating": 5,
-      "createdAt": "2024-02-20"
-    },
-    {
-      "id": "4",
-      "name": "David Thompson",
-      "role": "Founder",
-      "company": "FinTech Solutions",
-      "content": "The financial dashboard Ismail built for us is incredibly robust and user-friendly. His expertise in both frontend and backend development was evident throughout the project. Highly recommended!",
-      "rating": 5,
-      "createdAt": "2024-03-05"
-    },
-    {
-      "id": "5",
-      "name": "Lisa Wang",
-      "role": "Marketing Director",
-      "company": "Digital Marketing Pro",
-      "content": "Ismail created a stunning portfolio website that perfectly showcases our work. The site is fast, SEO-optimized, and has helped us attract new clients. His professionalism is top-notch.",
-      "rating": 5,
-      "createdAt": "2024-03-18"
-    },
-    {
-      "id": "6",
-      "name": "James Wilson",
-      "role": "Operations Manager",
-      "company": "LogiFlow",
-      "content": "The mobile app Ismail developed for our logistics company has streamlined our operations significantly. His understanding of our business needs and technical implementation was impressive.",
-      "rating": 4,
-      "createdAt": "2024-04-02"
+      "createdAt": "2024-08-20"
     }
   ],
   "contact": {
@@ -218,7 +170,7 @@
     "keywords": ["full stack developer", "web developer", "portfolio", "projects", "React", "Next.js", "digital transformation", "skills engineering"],
     "author": "Ismail El Fakir",
     "siteUrl": "https://ismailelfakir-portfolio.com",
-    "twitterHandle": "@ismailelfakir"
+    "twitterHandle": "@ismailelfaker"
   },
   "navigation": [
     { "label": "Home", "href": "#home" },
