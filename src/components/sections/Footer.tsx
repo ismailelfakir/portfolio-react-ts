@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Heart, Github, Linkedin, Mail, ArrowUp, Twitter } from 'lucide-react';
+import { Infinity, Github, Linkedin, Mail, ArrowUp, Twitter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { getPersonalInfo, getNavigation } from '@/lib/portfolio-config';
 
@@ -86,7 +86,7 @@ export default function Footer() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
                 <span>Made with</span>
-                <Heart className="w-4 h-4 text-red-500 fill-current" />
+                <Infinity className="w-4 h-4 text-slate-700 dark:text-slate-300 fill-current" />
                 <span>© {currentYear} {personalInfo.name}. All rights reserved.</span>
               </div>
 

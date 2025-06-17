@@ -85,7 +85,7 @@ export default function Navigation() {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="w-9 h-9 text-slate-700 dark:text-slate-200 bg-slate-200 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800"
+              className="w-9 h-9 text-slate-700 dark:text-slate-200 bg-slate-200 dark:bg-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800"
             >
               <Sun className="absolute h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
               <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
@@ -96,13 +96,13 @@ export default function Navigation() {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
+              className="md:hidden text-slate-700 dark:text-slate-200 bg-slate-200 dark:bg-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? (
-                <X className="h-4 w-4" />
+                <X className="absolute h-4 w-4 text-slate-700 dark:text-slate-200" />
               ) : (
-                <Menu className="h-4 w-4" />
+                <Menu className="absolute h-4 w-4 text-slate-700 dark:text-slate-200" />
               )}
             </Button>
           </div>
