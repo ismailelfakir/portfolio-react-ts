@@ -59,7 +59,7 @@ export default function About() {
               <div className="relative group">
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-teal-500/20 to-emerald-500/20 blur-xl group-hover:blur-2xl transition-all duration-500" />
                 <img
-                  src={personalInfo.profileImage}
+                  src={'./about_img.png'}
                   alt={`${personalInfo.name} - Professional headshot`}
                   className="relative w-full max-w-lg mx-auto rounded-2xl shadow-2xl border-4 border-white dark:border-slate-800 hover:scale-105 transition-all duration-500 ring-4 ring-teal-500/20 hover:ring-teal-500/40"
                   style={{
@@ -97,7 +97,7 @@ export default function About() {
               </div>
 
               <Button className="gradient-bg-primary hover:shadow-lg hover:shadow-teal-500/25 text-white font-semibold transition-all duration-300 hover:scale-105">
-                <a href="/ismail-elfakir-cv.pdf" download className="flex items-center gap-2">
+                <a href="/ismail-elfakir-cv.pdf" download className="flex text-slate-900 dark:text-white items-center gap-2">
                   <Download className="w-4 h-4" />
                   Download CV
                 </a>

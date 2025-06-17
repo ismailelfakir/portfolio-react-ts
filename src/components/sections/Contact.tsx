@@ -159,7 +159,7 @@ export default function Contact() {
 
               {/* Office Hours */}
               <div className="mt-8 p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
-                <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Office Hours</h4>
+                <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Working Hours</h4>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
                     <span className="text-slate-600 dark:text-slate-300">{contactInfo.officeHours.weekdays}</span>

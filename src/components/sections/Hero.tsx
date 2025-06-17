@@ -79,14 +79,14 @@ export default function Hero() {
             variants={itemVariants}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
           >
-            <Button size="lg" className="gradient-bg-primary hover:shadow-lg hover:shadow-teal-500/25 text-white px-8 py-3 font-semibold transition-all duration-300 hover:scale-105">
-              <a href="#projects" className="flex items-center gap-2">
+            <Button size="lg" className="gradient-bg-primary hover:shadow-lg hover:shadow-teal-500/25 !text-white px-8 py-3 font-semibold transition-all duration-300 hover:scale-105">
+              <a href="#projects" className="flex text-slate-900 dark:text-white items-center gap-2">
                 View My Work
                 <ArrowDown className="w-4 h-4" />
               </a>
             </Button>
-            <Button variant="outline" size="lg" className="px-8 py-3 font-semibold border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 transition-all duration-300">
-              <a href="#contact">Get In Touch</a>
+            <Button variant="outline" size="lg" className="px-8 py-3 font-semibold border-2 border-slate-300 dark:border-slate-600 text-slate-700 !dark:text-white hover:border-teal-500 hover:text-teal-600 dark:hover:text-teal-400 transition-all duration-300">
+              <a href="#contact" className='text-slate-900 dark:text-white'>Get In Touch</a>
             </Button>
           </motion.div>
 
