@@ -23,6 +23,8 @@ interface Testimonial {
 
 export default function Testimonials() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [displayedTestimonials, setDisplayedTestimonials] = useState<Testimonial[]>([]);
+  const [showAll, setShowAll] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -34,45 +36,110 @@ export default function Testimonials() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
-  // Load testimonials from config and localStorage on component mount
-useEffect(() => {
-  const fetchTestimonials = async () => {
-    const q = query(collection(db, 'testimonials'), orderBy('createdAt', 'desc'));
-    const snapshot = await getDocs(q);
-    const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Testimonial[];
-    setTestimonials(data);
+  // Deduplicate testimonials by name and content
+  const deduplicateTestimonials = (testimonials: Testimonial[]): Testimonial[] => {
+    const seen = new Set<string>();
+    return testimonials.filter((t) => {
+      const key = `${t.name}|${t.content}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
   };
 
-  fetchTestimonials();
-}, []);
+  // Shuffle array and select up to 6 testimonials
+  const shuffleArray = (array: Testimonial[]): Testimonial[] => {
+    return array
+      .sort(() => Math.random() - 0.5)
+      .slice(0, Math.min(6, array.length));
+  };
+
+  // Load testimonials from both Firebase and portfolio-config
+  useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        // Fetch from Firebase
+        const q = query(collection(db, 'testimonials'), orderBy('createdAt', 'desc'));
+        const snapshot = await getDocs(q);
+        const firestoreTestimonials = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+        })) as Testimonial[];
+
+        // Fetch from portfolio-config
+        const configTestimonials = getTestimonials();
+
+        // Merge and deduplicate
+        const mergedTestimonials = deduplicateTestimonials([
+          ...firestoreTestimonials,
+          ...configTestimonials
+        ]);
+
+        setTestimonials(mergedTestimonials);
+        setDisplayedTestimonials(shuffleArray(mergedTestimonials));
+      } catch (error) {
+        console.error('Error fetching testimonials:', error);
+        // Fallback to portfolio-config testimonials
+        const configTestimonials = getTestimonials();
+        setTestimonials(configTestimonials);
+        setDisplayedTestimonials(shuffleArray(configTestimonials));
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
+
+  // Update displayed testimonials when showAll toggles
+  useEffect(() => {
+    if (showAll) {
+      setDisplayedTestimonials(testimonials);
+    } else {
+      setDisplayedTestimonials(shuffleArray(testimonials));
+    }
+  }, [showAll, testimonials]);
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (!formData.name || !formData.content) {
-    toast.error('Please fill in all required fields');
-    return;
-  }
+    if (!formData.name || !formData.content) {
+      toast.error('Please fill in all required fields');
+      return;
+    }
 
-  try {
-    await addDoc(collection(db, 'testimonials'), {
-      ...formData,
-      createdAt: serverTimestamp()
-    });
+    try {
+      await addDoc(collection(db, 'testimonials'), {
+        ...formData,
+        createdAt: serverTimestamp()
+      });
 
-    toast.success('Thank you for your testimonial!');
-    setFormData({ name: '', role: '', company: '', content: '', rating: 5 });
-    setIsOpen(false);
+      toast.success('Thank you for your testimonial!');
+      setFormData({ name: '', role: '', company: '', content: '', rating: 5 });
+      setIsOpen(false);
 
-    // Re-fetch to update UI
-    const snapshot = await getDocs(collection(db, 'testimonials'));
-    const updated = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Testimonial[];
-    setTestimonials(updated);
-  } catch (error) {
-    toast.error('Failed to send testimonial');
-    console.error(error);
-  }
-};
+      // Re-fetch from Firebase
+      const q = query(collection(db, 'testimonials'), orderBy('createdAt', 'desc'));
+      const snapshot = await getDocs(q);
+      const firestoreTestimonials = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Testimonial[];
+
+      // Re-fetch from portfolio-config
+      const configTestimonials = getTestimonials();
+
+      // Merge and deduplicate
+      const mergedTestimonials = deduplicateTestimonials([
+        ...firestoreTestimonials,
+        ...configTestimonials
+      ]);
+
+      setTestimonials(mergedTestimonials);
+      setDisplayedTestimonials(showAll ? mergedTestimonials : shuffleArray(mergedTestimonials));
+    } catch (error) {
+      console.error('Error submitting or fetching testimonials:', error);
+      toast.error('Failed to send testimonial. Displaying default testimonials.');
+      const configTestimonials = getTestimonials();
+      setTestimonials(configTestimonials);
+      setDisplayedTestimonials(showAll ? configTestimonials : shuffleArray(configTestimonials));
+    }
+  };
 
   const handleInputChange = (field: string, value: string | number) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -128,80 +195,90 @@ useEffect(() => {
               What clients say about working with me
             </p>
             
-            <Dialog open={isOpen} onOpenChange={setIsOpen}>
-              <DialogTrigger asChild>
-                <Button className="gradient-bg-primary hover:shadow-lg hover:shadow-teal-500/25 text-white font-semibold transition-all duration-300 hover:scale-105">
-                  <Plus className="w-4 h-4 mr-2" />
-                  Add Testimonial
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-md">
-                <DialogHeader>
-                  <DialogTitle className="text-slate-900 dark:text-white">Share Your Experience</DialogTitle>
-                  <DialogDescription className="text-slate-600 dark:text-slate-300">
-                    Your feedback helps me improve and showcases our collaboration
-                  </DialogDescription>
-                </DialogHeader>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <Input
-                    placeholder="Your Name *"
-                    value={formData.name}
-                    onChange={(e) => handleInputChange('name', e.target.value)}
-                    required
-                    className="border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-white"
-                  />
-                  <Input
-                    placeholder="Your Role"
-                    value={formData.role}
-                    onChange={(e) => handleInputChange('role', e.target.value)}
-                    className="border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-white"
-                  />
-                  <Input
-                    placeholder="Company"
-                    value={formData.company}
-                    onChange={(e) => handleInputChange('company', e.target.value)}
-                    className="border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-white"
-                  />
-                  <Textarea
-                    placeholder="Share your experience working with me *"
-                    value={formData.content}
-                    onChange={(e) => handleInputChange('content', e.target.value)}
-                    rows={4}
-                    required
-                    className="border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-white"
-                  />
-                  <div className="space-y-2">
-                    <label className="text-sm font-semibold text-slate-900 dark:text-white">Rating</label>
-                    <div className="flex gap-1">
-                      {Array.from({ length: 5 }, (_, i) => (
-                        <button
-                          key={i}
-                          type="button"
-                          onClick={() => handleInputChange('rating', i + 1)}
-                          className="focus:outline-none"
-                        >
-                          <Star
-                            className={`w-6 h-6 ${i < formData.rating ? 'fill-yellow-400 text-yellow-400' : 'text-slate-300 dark:text-slate-600'}`}
-                          />
-                        </button>
-                      ))}
+            <div className="flex gap-4 justify-center">
+              <Dialog open={isOpen} onOpenChange={setIsOpen}>
+                <DialogTrigger asChild>
+                  <Button className="gradient-bg-primary hover:shadow-lg hover:shadow-teal-500/25 text-white font-semibold transition-all duration-300 hover:scale-105">
+                    <Plus className="w-4 h-4 mr-2" />
+                    Add Testimonial
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-md">
+                  <DialogHeader>
+                    <DialogTitle className="text-slate-900 dark:text-white">Share Your Experience</DialogTitle>
+                    <DialogDescription className="text-slate-600 dark:text-slate-300">
+                      Your feedback helps me improve and showcases our collaboration
+                    </DialogDescription>
+                  </DialogHeader>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <Input
+                      placeholder="Your Name *"
+                      value={formData.name}
+                      onChange={(e) => handleInputChange('name', e.target.value)}
+                      required
+                      className="border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-white"
+                    />
+                    <Input
+                      placeholder="Your Role"
+                      value={formData.role}
+                      onChange={(e) => handleInputChange('role', e.target.value)}
+                      className="border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-white"
+                    />
+                    <Input
+                      placeholder="Company"
+                      value={formData.company}
+                      onChange={(e) => handleInputChange('company', e.target.value)}
+                      className="border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-white"
+                    />
+                    <Textarea
+                      placeholder="Share your experience working with me *"
+                      value={formData.content}
+                      onChange={(e) => handleInputChange('content', e.target.value)}
+                      rows={4}
+                      required
+                      className="border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-white"
+                    />
+                    <div className="space-y-2">
+                      <label className="text-sm font-semibold text-slate-900 dark:text-white">Rating</label>
+                      <div className="flex gap-1">
+                        {Array.from({ length: 5 }, (_, i) => (
+                          <button
+                            key={i}
+                            type="button"
+                            onClick={() => handleInputChange(' rating', i + 1)}
+                            className="focus:outline-none"
+                          >
+                            <Star
+                              className={`w-6 h-6 ${i < formData.rating ? 'fill-yellow-400 text-yellow-400' : 'text-slate-300 dark:text-slate-600'}`}
+                            />
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex gap-2 pt-4">
-                    <Button type="button" variant="outline" onClick={() => setIsOpen(false)} className="flex-1 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200">
-                      Cancel
-                    </Button>
-                    <Button type="submit" className="flex-1 gradient-bg-primary text-white font-semibold">
-                      Submit
-                    </Button>
-                  </div>
-                </form>
-              </DialogContent>
-            </Dialog>
+                    <div className="flex gap-2 pt-4">
+                      <Button type="button" variant="outline" onClick={() => setIsOpen(false)} className="flex-1 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200">
+                        Cancel
+                      </Button>
+                      <Button type="submit" className="flex-1 gradient-bg-primary text-white font-semibold">
+                        Submit
+                      </Button>
+                    </div>
+                  </form>
+                </DialogContent>
+              </Dialog>
+              {testimonials.length > 6 && (
+                <Button
+                  onClick={() => setShowAll(!showAll)}
+                  className="gradient-bg-primary hover:shadow-lg hover:shadow-teal-500/25 text-white font-semibold transition-all duration-300 hover:scale-105"
+                >
+                  {showAll ? 'Show Less' : 'Show All'}
+                </Button>
+              )}
+            </div>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
+            {displayedTestimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.id}
                 variants={itemVariants}
