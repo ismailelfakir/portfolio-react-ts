@@ -8,6 +8,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { toast } from 'sonner';
 import { getTestimonials } from '@/lib/portfolio-config';
+import { collection, getDocs, addDoc, serverTimestamp, query, orderBy } from 'firebase/firestore';
+import { db } from '@/lib/firebase';
 
 interface Testimonial {
   id: string;
@@ -33,48 +35,44 @@ export default function Testimonials() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   // Load testimonials from config and localStorage on component mount
-  useEffect(() => {
-    const configTestimonials = getTestimonials();
-    const savedTestimonials = localStorage.getItem('portfolio-testimonials');
-    
-    if (savedTestimonials) {
-      const parsed = JSON.parse(savedTestimonials);
-      // Merge config testimonials with saved ones, avoiding duplicates
-      const merged = [...configTestimonials];
-      parsed.forEach((saved: Testimonial) => {
-        if (!merged.find(t => t.id === saved.id)) {
-          merged.push(saved);
-        }
-      });
-      setTestimonials(merged);
-    } else {
-      setTestimonials(configTestimonials);
-      localStorage.setItem('portfolio-testimonials', JSON.stringify(configTestimonials));
-    }
-  }, []);
+useEffect(() => {
+  const fetchTestimonials = async () => {
+    const q = query(collection(db, 'testimonials'), orderBy('createdAt', 'desc'));
+    const snapshot = await getDocs(q);
+    const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Testimonial[];
+    setTestimonials(data);
+  };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!formData.name || !formData.content) {
-      toast.error('Please fill in all required fields');
-      return;
-    }
+  fetchTestimonials();
+}, []);
 
-    const newTestimonial: Testimonial = {
-      id: `user-${Date.now()}`,
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  if (!formData.name || !formData.content) {
+    toast.error('Please fill in all required fields');
+    return;
+  }
+
+  try {
+    await addDoc(collection(db, 'testimonials'), {
       ...formData,
-      createdAt: new Date().toISOString().split('T')[0]
-    };
+      createdAt: serverTimestamp()
+    });
 
-    const updatedTestimonials = [newTestimonial, ...testimonials];
-    setTestimonials(updatedTestimonials);
-    localStorage.setItem('portfolio-testimonials', JSON.stringify(updatedTestimonials));
-
+    toast.success('Thank you for your testimonial!');
     setFormData({ name: '', role: '', company: '', content: '', rating: 5 });
     setIsOpen(false);
-    toast.success('Thank you for your testimonial!');
-  };
+
+    // Re-fetch to update UI
+    const snapshot = await getDocs(collection(db, 'testimonials'));
+    const updated = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Testimonial[];
+    setTestimonials(updated);
+  } catch (error) {
+    toast.error('Failed to send testimonial');
+    console.error(error);
+  }
+};
 
   const handleInputChange = (field: string, value: string | number) => {
     setFormData(prev => ({ ...prev, [field]: value }));
