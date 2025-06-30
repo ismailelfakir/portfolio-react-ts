@@ -281,6 +281,36 @@
         "Responsive and modern interface",
         "French language support"
       ]
+    },
+    {
+      "id": "6",
+      "title": "Next.js Portfolio Website",
+      "description": "Personal developer portfolio built with Next.js and Tailwind CSS, showcasing skills in full stack development.",
+      "longDescription": "A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. This portfolio showcases my skills as a Full Stack Developer specializing in Digital Transformation and Skills Engineering. It includes a hero section, skill matrix, dynamic testimonials, and a detailed project gallery with real-time form validation in the contact section.",
+      "category": "web",
+      "image": "https://res.cloudinary.com/dna1kkyex/image/upload/v1751308377/portfolio-nextjs-img_im1esu.png",
+      "tags": [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "shadcn/ui",
+        "Zod",
+        "React Hook Form",
+        "Portfolio"
+      ],
+      "links": {
+        "demo": "https://nextjs.ismailelfakir.com",
+        "github": "https://github.com/ismailelfakir/portfolio-nextjs"
+      },
+      "features": [
+        "Hero, About, Skills, Projects, Testimonials, and Contact sections",
+        "Dark/Light mode with system preference and smooth transitions",
+        "Dynamic testimonials with user ratings and localStorage persistence",
+        "Real-time contact form validation with Zod and React Hook Form",
+        "Project gallery with filter and detail modal view",
+        "Fully responsive design with mobile-first architecture"
+      ]
     }
   ],
   "testimonials": [
