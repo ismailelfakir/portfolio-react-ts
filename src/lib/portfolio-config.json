@@ -146,7 +146,7 @@
       "description": "A full-stack, SEO-optimized blog platform with admin dashboard, dark mode, and Cloudinary image handling.",
       "longDescription": "TechInsights is a modern, full-stack blog platform built with Next.js 13+, featuring a comprehensive admin dashboard, MongoDB integration, secure authentication with NextAuth.js, Cloudinary-powered image uploads, rich content editing with TipTap, and advanced SEO features like dynamic sitemaps and RSS feeds. Designed with a professional UI using Tailwind CSS and shadcn/ui, it delivers a seamless user and admin experience with responsive design and intelligent dark mode.",
       "category": "web",
-      "image": "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop",
+      "image": "https://res.cloudinary.com/dna1kkyex/image/upload/v1751303889/tech-insights-img_rweivk.png",
       "tags": [
         "Next.js",
         "MongoDB",

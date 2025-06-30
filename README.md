@@ -283,7 +283,7 @@ For questions or support:
 
 ---
 
-Built with ❤️ using React, TypeScript, and modern web technologies.
+Built with ismail el fakir using React, TypeScript, and modern web technologies.
 
 ## 🔧 Configuration Guide
 
