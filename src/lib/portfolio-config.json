@@ -23,71 +23,226 @@
   },
   "skills": {
     "frontend": [
-      { "name": "React", "level": 95 },
-      { "name": "Next.js", "level": 90 },
-      { "name": "TypeScript", "level": 88 },
-      { "name": "JavaScript", "level": 95 },
-      { "name": "HTML5", "level": 98 },
-      { "name": "CSS3", "level": 92 },
-      { "name": "Tailwind CSS", "level": 90 },
-      { "name": "Vue.js", "level": 75 }
+      {
+        "name": "React",
+        "level": 95
+      },
+      {
+        "name": "Next.js",
+        "level": 90
+      },
+      {
+        "name": "TypeScript",
+        "level": 88
+      },
+      {
+        "name": "JavaScript",
+        "level": 95
+      },
+      {
+        "name": "HTML5",
+        "level": 98
+      },
+      {
+        "name": "CSS3",
+        "level": 92
+      },
+      {
+        "name": "Tailwind CSS",
+        "level": 90
+      },
+      {
+        "name": "Vue.js",
+        "level": 75
+      }
     ],
     "backend": [
-      { "name": "Node.js", "level": 85 },
-      { "name": "Express.js", "level": 80 },
-      { "name": "Python", "level": 78 },
-      { "name": "Java", "level": 70 },
-      { "name": "PHP", "level": 65 },
-      { "name": "REST APIs", "level": 88 },
-      { "name": "GraphQL", "level": 72 }
+      {
+        "name": "Node.js",
+        "level": 85
+      },
+      {
+        "name": "Express.js",
+        "level": 80
+      },
+      {
+        "name": "Python",
+        "level": 78
+      },
+      {
+        "name": "Java",
+        "level": 70
+      },
+      {
+        "name": "PHP",
+        "level": 65
+      },
+      {
+        "name": "REST APIs",
+        "level": 88
+      },
+      {
+        "name": "GraphQL",
+        "level": 72
+      }
     ],
     "tools": [
-      { "name": "Git", "level": 90 },
-      { "name": "Docker", "level": 75 },
-      { "name": "VS Code", "level": 95 },
-      { "name": "Figma", "level": 80 },
-      { "name": "Adobe XD", "level": 70 },
-      { "name": "Postman", "level": 85 }
+      {
+        "name": "Git",
+        "level": 90
+      },
+      {
+        "name": "Docker",
+        "level": 75
+      },
+      {
+        "name": "VS Code",
+        "level": 95
+      },
+      {
+        "name": "Figma",
+        "level": 80
+      },
+      {
+        "name": "Adobe XD",
+        "level": 70
+      },
+      {
+        "name": "Postman",
+        "level": 85
+      }
     ],
     "database": [
-      { "name": "MongoDB", "level": 80 },
-      { "name": "PostgreSQL", "level": 75 },
-      { "name": "MySQL", "level": 78 },
-      { "name": "Firebase", "level": 82 },
-      { "name": "AWS", "level": 65 },
-      { "name": "Vercel", "level": 88 }
+      {
+        "name": "MongoDB",
+        "level": 80
+      },
+      {
+        "name": "PostgreSQL",
+        "level": 75
+      },
+      {
+        "name": "MySQL",
+        "level": 78
+      },
+      {
+        "name": "Firebase",
+        "level": 82
+      },
+      {
+        "name": "AWS",
+        "level": 65
+      },
+      {
+        "name": "Vercel",
+        "level": 88
+      }
     ]
   },
   "projects": [
     {
       "id": "1",
-      "title": "Web Dev Tests QCM",
-      "description": "An interactive web application for testing knowledge in various web development domains through multiple-choice quizzes.",
-      "longDescription": "A dynamic web application designed to help users practice and improve their web development skills through interactive multiple-choice quizzes. It covers topics such as HTML, CSS, JavaScript, PHP, Apache, DNS, and Bootstrap, with real-time progress tracking, instant feedback, and detailed result summaries. Built with React 18, Vite, and Tailwind CSS, and deployed on Vercel for seamless access. The application supports French and offers an intuitive interface for an engaging learning experience.",
+      "title": "TechInsights - Professional IT Blog Platform",
+      "description": "A full-stack, SEO-optimized blog platform with admin dashboard, dark mode, and Cloudinary image handling.",
+      "longDescription": "TechInsights is a modern, full-stack blog platform built with Next.js 13+, featuring a comprehensive admin dashboard, MongoDB integration, secure authentication with NextAuth.js, Cloudinary-powered image uploads, rich content editing with TipTap, and advanced SEO features like dynamic sitemaps and RSS feeds. Designed with a professional UI using Tailwind CSS and shadcn/ui, it delivers a seamless user and admin experience with responsive design and intelligent dark mode.",
       "category": "web",
-      "image": "https://res.cloudinary.com/dna1kkyex/image/upload/v1750085728/qcm-img_evg1ro.png",
-      "tags": ["React", "Vite", "Tailwind CSS", "JavaScript"],
+      "image": "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=1200&h=400&fit=crop",
+      "tags": [
+        "Next.js",
+        "MongoDB",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Cloudinary",
+        "SEO",
+        "Dark Mode"
+      ],
       "links": {
-        "demo": "https://web-dev-tests-qcm.vercel.app",
-        "github": "https://github.com/ismailelfakir/web-dev-tests-qcm"
+        "demo": "https://blogs.ismailelfakir.com/",
+        "github": "https://github.com/ismailelfakir/nextjs-it-blog"
       },
       "features": [
-        "Multiple-choice quizzes across web development topics",
-        "Real-time progress tracking",
-        "Instant visual feedback",
-        "Detailed result summaries with answer reviews",
-        "Responsive and modern interface",
-        "French language support"
+        "Next.js 13+ App Router with dynamic routing",
+        "MongoDB integration with Mongoose ODM",
+        "Full-featured admin dashboard",
+        "Rich text editor (TipTap) and Cloudinary image management",
+        "SEO: dynamic meta, sitemap, RSS, JSON-LD",
+        "Dark mode with system detection and theme persistence",
+        "Responsive design and mobile-optimized layout"
       ]
     },
     {
       "id": "2",
+      "title": "Morocco Real Estate - Luxury Property Platform",
+      "description": "A luxury real estate platform for Morocco with React, dark/light mode, and multilingual support.",
+      "longDescription": "Morocco Real Estate is a responsive real estate platform built with React, offering users the ability to browse luxury properties, search with advanced filters, read blog posts, and manage their favorite listings. The UI supports Moroccan-themed light/dark modes, accessibility compliance, and mobile optimization. It includes user authentication, blog insights, and a modern UI reflecting Moroccan design influences.",
+      "category": "web",
+      "image": "https://res.cloudinary.com/dna1kkyex/image/upload/v1750867034/real-estate-img_uigfcy.png",
+      "tags": [
+        "React",
+        "Real Estate",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Dark Mode",
+        "Multilingual",
+        "Responsive"
+      ],
+      "links": {
+        "demo": "https://real-estate-topaz-theta.vercel.app/",
+        "github": "https://github.com/ismailelfakir/morocco-real-estate"
+      },
+      "features": [
+        "Luxury property listings with detailed descriptions",
+        "Advanced search filters and responsive property cards",
+        "User login, registration, and profile management",
+        "Favorite property saving system",
+        "Rich blog system for real estate content",
+        "Light/Dark mode toggle with system preference support",
+        "Moroccan-themed design with accessibility standards"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "LifeInsights Blog",
+      "description": "A modern, SEO-optimized blog platform offering practical insights on health, education, lifestyle, technology, insurance, and travel, designed for a general audience.",
+      "longDescription": "LifeInsights Blog is a professional, accessible, and performance-optimized web platform delivering high-quality content on health, education, lifestyle, technology, insurance, and travel. Built with React 18, TypeScript, and Tailwind CSS, it features over 25 comprehensive articles, organized into six categories, with SEO-friendly URLs, structured data, and Open Graph tags for enhanced discoverability. The mobile-first, WCAG-compliant design includes dark/light mode, intuitive navigation with dropdown menus, search functionality, and a newsletter signup. Deployed on Vercel, it ensures fast loading and a seamless user experience across devices.",
+      "category": "web",
+      "image": "https://res.cloudinary.com/dna1kkyex/image/upload/v1750086636/blogs-img_x3mabn.png",
+      "tags": [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Vite",
+        "React Helmet",
+        "Lucide React"
+      ],
+      "links": {
+        "demo": "https://life-insights-blog.vercel.app",
+        "github": "https://github.com/ismailelfakir/life-insights-blog"
+      },
+      "features": [
+        "Over 25 SEO-optimized articles across six categories",
+        "Mobile-first, WCAG-compliant responsive design",
+        "Dark/light mode with user preference storage",
+        "Professional navigation with dropdown menus and search",
+        "React Helmet for dynamic meta tags and structured data",
+        "Fast loading with lazy-loaded images and code splitting"
+      ]
+    },
+    {
+      "id": "4",
       "title": "Quality Evaluation System",
       "description": "A web application for evaluating quality in higher education, enabling students, teachers, and staff to assess institutional aspects based on standardized criteria.",
       "longDescription": "A sophisticated web application designed for quality evaluation in higher education institutions. It allows students, teachers, and administrative staff to assess various institutional aspects through a hierarchical structure of fields, references, criteria, and questions. The system features role-based question filtering, interactive dashboards with graphical visualizations, automated score calculations, and data export options in Markdown, Excel, and PDF formats. Built with React 18, TypeScript, and Tailwind CSS, it ensures a responsive, secure, and user-friendly experience, deployed on Vercel.",
       "category": "web",
       "image": "https://res.cloudinary.com/dna1kkyex/image/upload/v1750084524/mq-img_gxxgo0.png",
-      "tags": ["React", "TypeScript", "Tailwind CSS", "Lucide React", "XLSX", "jsPDF"],
+      "tags": [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Lucide React",
+        "XLSX",
+        "jsPDF"
+      ],
       "links": {
         "demo": "https://qual-eval.vercel.app",
         "github": "https://github.com/ismailelfakir/qual-eval"
@@ -102,24 +257,29 @@
       ]
     },
     {
-      "id": "3",
-      "title": "LifeInsights Blog",
-      "description": "A modern, SEO-optimized blog platform offering practical insights on health, education, lifestyle, technology, insurance, and travel, designed for a general audience.",
-      "longDescription": "LifeInsights Blog is a professional, accessible, and performance-optimized web platform delivering high-quality content on health, education, lifestyle, technology, insurance, and travel. Built with React 18, TypeScript, and Tailwind CSS, it features over 25 comprehensive articles, organized into six categories, with SEO-friendly URLs, structured data, and Open Graph tags for enhanced discoverability. The mobile-first, WCAG-compliant design includes dark/light mode, intuitive navigation with dropdown menus, search functionality, and a newsletter signup. Deployed on Vercel, it ensures fast loading and a seamless user experience across devices.",
+      "id": "5",
+      "title": "Web Dev Tests QCM",
+      "description": "An interactive web application for testing knowledge in various web development domains through multiple-choice quizzes.",
+      "longDescription": "A dynamic web application designed to help users practice and improve their web development skills through interactive multiple-choice quizzes. It covers topics such as HTML, CSS, JavaScript, PHP, Apache, DNS, and Bootstrap, with real-time progress tracking, instant feedback, and detailed result summaries. Built with React 18, Vite, and Tailwind CSS, and deployed on Vercel for seamless access. The application supports French and offers an intuitive interface for an engaging learning experience.",
       "category": "web",
-      "image": "https://res.cloudinary.com/dna1kkyex/image/upload/v1750086636/blogs-img_x3mabn.png",
-      "tags": ["React", "TypeScript", "Tailwind CSS", "Vite", "React Helmet", "Lucide React"],
+      "image": "https://res.cloudinary.com/dna1kkyex/image/upload/v1750085728/qcm-img_evg1ro.png",
+      "tags": [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "JavaScript"
+      ],
       "links": {
-        "demo": "https://life-insights-blog.vercel.app",
-        "github": "https://github.com/ismailelfakir/life-insights-blog"
+        "demo": "https://web-dev-tests-qcm.vercel.app",
+        "github": "https://github.com/ismailelfakir/web-dev-tests-qcm"
       },
       "features": [
-        "Over 25 SEO-optimized articles across six categories",
-        "Mobile-first, WCAG-compliant responsive design",
-        "Dark/light mode with user preference storage",
-        "Professional navigation with dropdown menus and search",
-        "React Helmet for dynamic meta tags and structured data",
-        "Fast loading with lazy-loaded images and code splitting"
+        "Multiple-choice quizzes across web development topics",
+        "Real-time progress tracking",
+        "Instant visual feedback",
+        "Detailed result summaries with answer reviews",
+        "Responsive and modern interface",
+        "French language support"
       ]
     }
   ],
@@ -167,17 +327,44 @@
   "seo": {
     "title": "Ismail El Fakir | Full Stack Developer Portfolio",
     "description": "Personal portfolio showcasing projects and skills in web development, digital transformation, and skills engineering",
-    "keywords": ["full stack developer", "web developer", "portfolio", "projects", "React", "Next.js", "digital transformation", "skills engineering"],
+    "keywords": [
+      "full stack developer",
+      "web developer",
+      "portfolio",
+      "projects",
+      "React",
+      "Next.js",
+      "digital transformation",
+      "skills engineering"
+    ],
     "author": "Ismail El Fakir",
     "siteUrl": "https://ismailelfakir-portfolio.com",
     "twitterHandle": "@ismailelfaker"
   },
   "navigation": [
-    { "label": "Home", "href": "#home" },
-    { "label": "About", "href": "#about" },
-    { "label": "Skills", "href": "#skills" },
-    { "label": "Projects", "href": "#projects" },
-    { "label": "Testimonials", "href": "#testimonials" },
-    { "label": "Contact", "href": "#contact" }
+    {
+      "label": "Home",
+      "href": "#home"
+    },
+    {
+      "label": "About",
+      "href": "#about"
+    },
+    {
+      "label": "Skills",
+      "href": "#skills"
+    },
+    {
+      "label": "Projects",
+      "href": "#projects"
+    },
+    {
+      "label": "Testimonials",
+      "href": "#testimonials"
+    },
+    {
+      "label": "Contact",
+      "href": "#contact"
+    }
   ]
 }
